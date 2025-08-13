@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  /* Brand-based soft green gradient (from logo green hues) */
+  background: linear-gradient(180deg, #03351e 0%, #101a15 50%, #2cb05a 100%);
+  color: var(--foreground);
+}
+
+/* Animated waves background */
+.wave-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.waves {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 36vh;
+}
+
+.wave {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 200%;
+  height: 100%;
+  background-repeat: repeat-x;
+  background-size: 50% 100%;
+  transform: translateZ(0);
+  animation: waveScroll 18s linear infinite;
+  opacity: 0.6;
+}
+
+.wave.wave-1 {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 240'%3E%3Cpath fill='%23bae6fd' fill-opacity='0.55' d='M0,160L60,154.7C120,149,240,139,360,149.3C480,160,600,192,720,192C840,192,960,160,1080,144C1200,128,1320,128,1380,128L1440,128L1440,240L1380,240C1320,240,1200,240,1080,240C960,240,840,240,720,240C600,240,480,240,360,240C240,240,120,240,60,240L0,240Z'/%3E%3C/svg%3E");
+  animation-duration: 22s;
+}
+
+.wave.wave-2 {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 240'%3E%3Cpath fill='%237dd3fc' fill-opacity='0.45' d='M0,160L40,165.3C80,171,160,181,240,181.3C320,181,400,171,480,165.3C560,160,640,160,720,170.7C800,181,880,203,960,208C1040,213,1120,203,1200,192C1280,181,1360,171,1400,165.3L1440,160L1440,240L1400,240C1360,240,1280,240,1200,240C1120,240,1040,240,960,240C880,240,800,240,720,240C640,240,560,240,480,240C400,240,320,240,240,240C160,240,80,240,40,240L0,240Z'/%3E%3C/svg%3E");
+  animation-duration: 28s;
+  animation-direction: reverse;
+}
+
+.wave.wave-3 {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 240'%3E%3Cpath fill='%230ea5e9' fill-opacity='0.35' d='M0,192L80,181.3C160,171,320,149,480,149.3C640,149,800,171,960,181.3C1120,192,1280,192,1360,192L1440,192L1440,240L1360,240C1280,240,1120,240,960,240C800,240,640,240,480,240C320,240,160,240,80,240L0,240Z'/%3E%3C/svg%3E");
+  animation-duration: 36s;
+}
+
+@keyframes waveScroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
